@@ -1,62 +1,210 @@
-*{
+
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap');
+
+* {
     margin: 0;
     padding: 0;
-    size: 20px;
-    font-family: poppins, sans-serif;
-    font-weight: bold;
-    transition: all 0.8s ease-in-out;
+    box-sizing: border-box;
+    font-family: 'Outfit', sans-serif;
 }
-.btn{
-    height: 80px;
-    width: 80px;
-    border: none;
-    outline: none;
-    border-radius: 10px;
-    background-color: rgb(252, 234, 201);
-    color: rgb(107, 75, 75);
-    font-size: 20px;
-    font-weight: bold;
-}
-.container{
-    display: grid;
-    height: 245px;
-    width: 245px;
-    grid-template-columns: 1fr 1fr 1fr;
-    margin-top:10px ;
-    padding: 20px;
-}
-.parent-container{
+
+body {
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 8px;
+    background: radial-gradient(circle at top, #202d48, #0c1220 65%);
+    color: #fff;
 }
-header{
-text-align: center;
-display: flex;
-flex-direction: column;
-justify-content: center;
-margin-top: 40px;
-font-size: 30px;
-padding: 5px;
-gap: 10px;
-color: rgb(107, 75, 75);
+
+.game {
+    width: min(100%, 450px);
+    padding: 35px 24px;
+    text-align: center;
 }
-.hide{
- display: none;
+
+header {
+    margin-bottom: 35px;
 }
-#reset{
-    background-color: rgb(107, 75, 75);
-    color: rgb(255, 247, 224);
-    font-size: 16px;
-    font-weight: bold;
-    border: none;
-    outline: none;
-    padding: 10px;
-    border-radius: 10px;
-    height: 40px;
-    width: 70px;
-    margin:10px;
+
+.subtitle {
+    color: #8494b5;
+    font-size: 11px;
+    letter-spacing: 5px;
+    margin-bottom: 12px;
+}
+
+h1 {
+    font-size: clamp(30px, 8vw, 40px);
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+h1 span {
+    color: #f5b942;
+}
+
+#status {
+    color: #aab7ce;
+    font-size: 15px;
+    margin-top: 12px;
+}
+
+.board-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-template-rows: repeat(3, 100px);
+    gap: 10px;
+}
+
+.btn {
+    display: flex;
     align-items: center;
     justify-content: center;
+    border: 1px solid #34425e;
+    border-radius: 17px;
+    background: linear-gradient(145deg, #1b2941, #141e32);
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+}
+
+.btn:not(:disabled):hover {
+    background: #293b5b;
+    transform: translateY(-3px);
+}
+
+.btn:disabled {
+    cursor: default;
+}
+
+.btn svg {
+    width: 48px;
+    height: 48px;
+    display: block;
+    animation: iconPop 0.25s ease;
+}
+
+.btn.O svg {
+    color: #ff719b;
+}
+
+.btn.X svg {
+    color: #60c9ff;
+}
+
+.btn.winning {
+    background: #354663;
+    border-color: #f5b942;
+    box-shadow: 0 0 18px #f5b94235;
+}
+
+#win-line {
+    position: absolute;
+    height: 5px;
+    width: 0;
+    background: #f5b942;
+    border-radius: 10px;
+    pointer-events: none;
+    z-index: 2;
+    transform-origin: left center;
+    box-shadow: 0 0 12px #f5b942;
+    transition: width 0.45s ease;
+}
+
+#winner {
+    color: #f5b942;
+    font-size: 23px;
+    font-weight: 700;
+    margin-top: 25px;
+    animation: pop 0.4s ease;
+}
+
+.hide {
+    display: none;
+}
+
+.actions {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 30px;
+}
+
+.actions button {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+#reset {
+    color: #d9e3f5;
+    background: #293750;
+}
+
+#newGame {
+    color: #172033;
+    background: #f5b942;
+}
+
+.actions button:hover {
+    transform: translateY(-3px);
+    filter: brightness(1.1);
+}
+
+footer {
+    margin-top: 45px;
+    color: #586985;
+    font-size: 10px;
+    letter-spacing: 3px;
+}
+
+@keyframes iconPop {
+    from {
+        transform: scale(0.4);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes pop {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@media (max-width: 380px) {
+    .container {
+        grid-template-columns: repeat(3, 85px);
+        grid-template-rows: repeat(3, 85px);
+        gap: 8px;
+    }
+
+    .btn svg {
+        width: 40px;
+        height: 40px;
+    }
+
+    .game {
+        padding: 25px 15px;
+    }
 }
