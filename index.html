@@ -1,42 +1,55 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tic-Tac-toe</title>
+    <title>Tic Tac Toe</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <p id="heading">
-            TIC-TAC-TOE
-        </p>
-        <p id="winner" class="hide">WINNER</p>
-    </header>
-    <main>
-        <div class="parent-container">
-        <div class="container">
-            
-        <button class="btn" id="btn1"></button>
-        <button class="btn" id="btn2"></button>
-        <button class="btn" id="btn3"></button>
 
-        <button class="btn" id="btn4"></button>
-        <button class="btn" id="btn5"></button>
-        <button class="btn" id="btn6"></button>
+    <main class="game">
 
-        <button class="btn" id="btn7"></button>
-        <button class="btn" id="btn8"></button>
-        <button class="btn" id="btn9"></button>
+        <header>
+            <p class="subtitle">THE CLASSIC GAME</p>
+            <h1>TIC <span>·</span> TAC <span>·</span> TOE</h1>
+            <p id="status">Player O's turn</p>
+        </header>
+
+        <section class="board-wrapper">
+            <div class="container" id="board">
+
+                <button class="btn"></button>
+                <button class="btn"></button>
+                <button class="btn"></button>
+
+                <button class="btn"></button>
+                <button class="btn"></button>
+                <button class="btn"></button>
+
+                <button class="btn"></button>
+                <button class="btn"></button>
+                <button class="btn"></button>
+
+                <div id="win-line"></div>
+
+            </div>
+        </section>
+
+        <p id="winner" class="hide"></p>
+
+        <div class="actions">
+            <button id="reset">Reset</button>
+            <button id="newGame">New Game</button>
         </div>
-        </div>
+
+        <footer>
+            MADE FOR FUN · TWO PLAYER GAME
+        </footer>
+
     </main>
-    <footer>
-        <div class="parent-container">
-        <button id="reset">Reset</button>  
-       
-        </div>
-    </footer>    
+
     <script src="script.js"></script>
 </body>
 </html>
